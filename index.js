@@ -59,11 +59,10 @@ instance.prototype.destroy = function() {
 	debug("destory", self.id);;
 };
 
-
-
 instance.prototype.actions = function(system) {
 	var self = this;
 	self.system.emit('instance_actions', self.id, {
+
 		'goCue':	{
 			label: 'Play (cue)',
 			options: [
@@ -75,6 +74,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'stopCue':	{
 			label: 'Stop (cue)',
 			options: [
@@ -86,6 +86,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'pauseCue':	{
 			label: 'Pause / Resume (cue)',
 			options: [
@@ -97,6 +98,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'gotoCue':	{
 			label: 'Goto (cue)',
 			options: [
@@ -108,6 +110,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'hkGo':	{
 			label: 'Activate Hotkey',
 			options: [
@@ -119,6 +122,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'hkOn':	{
 			label: 'Activate Note on Hotkey',
 			options: [
@@ -130,6 +134,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'hkOff':	{
 			label: 'deactivate Hotkey',
 			options: [
@@ -141,6 +146,7 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
+
 		'mfader':	{
 			label: 'Set level on Master fader',
 			options: [
@@ -152,7 +158,6 @@ instance.prototype.actions = function(system) {
 				}
 			]
 		},
-
 
 		'go':       { label: 'Go' },
 		'pause':    { label: 'Pause / Resume all' },
@@ -166,116 +171,138 @@ instance.prototype.actions = function(system) {
 }
 
 instance.prototype.action = function(action) {
+
 	var self = this;
 	var opt = action.options;
-	var cmd
+	var cmd;
+	var arg;
 
 	switch (action.action) {
 
 		case 'goCue':
-			var arg = {
+
+			arg = {
 				type: "s",
 				value: opt.cue
-				}
+			}
+
 			cmd = '/scs/cue/go';
 			break;
 
 		case 'stopCue':
-			var arg = {
+
+			arg = {
 				type: "s",
 				value: opt.cue
-				}
+			}
+
 			cmd = '/scs/cue/stop';
 			break;
 
 		case 'pauseCue':
-			var arg = {
+
+			arg = {
 				type: "s",
 				value: opt.cue
-				}
+			}
+
 			cmd = '/scs/cue/pauseresume';
 			break;
 
 		case 'gotoCue':
-			var arg = {
+
+			arg = {
 				type: "s",
 				value: opt.cue
-				}
+			}
+
 			cmd = '/scs/ctrl/goto';
 			break;
 
 		case 'go':
+
 			arg = null
 			cmd = '/scs/ctrl/go';
 			break;
 
 		case 'pauseall':
+
 			arg = null
 			cmd = '/scs/ctrl/pauseresumeall';
 			break;
 
 		case 'stopall':
+
 			arg = null
 			cmd = '/scs/ctrl/stopall';
 			break;
 
 		case 'top':
+
 			arg = null
 			cmd = '/scs/ctrl/gotop';
 			break;
 
 		case 'previous':
+
 			arg = null
 			cmd = '/scs/ctrl/goback';
 			break;
 
 		case 'next':
+
 			arg = null
 			cmd = '/scs/ctrl/gotonext';
 			break;
 
 		case 'hkGo':
-			var arg = {
+
+			arg = {
 				type: "s",
 				value: opt.hk
-				}
+			}
 			cmd = '/scs/hkey/go';
 			break;
 
 		case 'hkOn':
-			var arg = {
+
+			arg = {
 				type: "s",
 				value: opt.hk
-				}
+			}
 			cmd = '/scs/hkey/on';
 			break;
 
 		case 'hkOff':
+
 			var arg = {
 				type: "s",
 				value: opt.hk
-				}
+			}
 			cmd = '/scs/hkey/off';
 			break;
 
 		case 'mfader':
-			var arg = {
+
+			arg = {
 				type: "f",
 				value: opt.fad
-				}
+			}
 			cmd = '/scs/fader/setmaster';
 			break;
 
-
 	};
+
 	if (cmd !== undefined && arg !== null)  {
 		debug('sending',cmd,arg,"to",self.config.host);
 		self.system.emit('osc_send', self.config.host, self.config.port, cmd, [arg])
 	}
+
 	else if (cmd !== undefined && arg == null)  {
 		debug('sending',cmd,"to",self.config.host);
 		self.system.emit('osc_send', self.config.host, self.config.port, cmd, [])
 	}
+
 };
 
 instance_skel.extendedBy(instance);
