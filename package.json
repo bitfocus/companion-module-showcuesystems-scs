@@ -1,16 +1,22 @@
 {
-  "name": "scs",
-  "version": "1.0.0",
+	"name": "scs",
+	"version": "1.0.1",
 	"api_version": "1.0.0",
-	"keywords": [ "Software", "Show Control", "Video", "MIDI", "Lighting" ],
+	"keywords": [
+		"Software",
+		"Show Control",
+		"Video",
+		"MIDI",
+		"Lighting"
+	],
 	"manufacturer": "Show Cue Systems",
 	"product": "SCS",
 	"shortname": "scs",
-  "description": "Module to control Show Cue Systems",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Per Røine <per.roine@gmail.com",
-  "license": "MIT"
+	"description": "Module to control Show Cue Systems",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Per Røine <per.roine@gmail.com",
+	"license": "MIT"
 }
