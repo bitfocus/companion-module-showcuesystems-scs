@@ -216,7 +216,7 @@ instance.prototype.action = function(action) {
 				value: opt.cue
 			}
 
-			cmd = '/scs/ctrl/goto';
+			cmd = '/scs/ctrl/gotocue';
 			break;
 
 		case 'go':
