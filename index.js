@@ -160,8 +160,8 @@ instance.prototype.actions = function(system) {
 		},
 
 		'go':       { label: 'Go' },
-		'pause':    { label: 'Pause / Resume all' },
-		'stop':     { label: 'Stop' },
+		'pauseall':    { label: 'Pause / Resume all' },
+		//'stop':     { label: 'Stop' },
 		'stopall':  { label: 'Stop all' },
 		'top':      { label: 'Goto Top of cuelist' },
 		'previous': { label: 'Goto Previous cue in playlist' },
