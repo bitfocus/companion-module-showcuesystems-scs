@@ -254,7 +254,7 @@ instance.prototype.action = function(action) {
 		case 'bottom':
 
 			arg = null
-			cmd = '/scs/ctrl/gotend';
+			cmd = '/scs/ctrl/gotoend';
 			break;
 
 
