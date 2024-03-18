@@ -163,7 +163,9 @@ instance.prototype.actions = function(system) {
 		'pauseall':    { label: 'Pause / Resume all' },
 		//'stop':     { label: 'Stop' },
 		'stopall':  { label: 'Stop all' },
+		'fadeall':  { label: 'Fade all' },
 		'top':      { label: 'Goto Top of cuelist' },
+		'bottom':      { label: 'Goto End of cuelist' },
 		'previous': { label: 'Goto Previous cue in playlist' },
 		'next':     { label: 'Goto Next cue in playlist' }
 
@@ -236,12 +238,25 @@ instance.prototype.action = function(action) {
 			arg = null
 			cmd = '/scs/ctrl/stopall';
 			break;
+		
+		case 'fadeall':
+
+			arg = null
+			cmd = '/scs/ctrl/fadeall';
+			break;
 
 		case 'top':
 
 			arg = null
 			cmd = '/scs/ctrl/gotop';
 			break;
+			
+		case 'bottom':
+
+			arg = null
+			cmd = '/scs/ctrl/gotoend';
+			break;
+
 
 		case 'previous':
 

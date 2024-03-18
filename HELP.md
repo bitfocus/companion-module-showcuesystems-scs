@@ -18,6 +18,8 @@ This module controls SCS by Show Cue Systems.
 * Pause / Resume all
 * Stop
 * Stop all
+* Fade all
 * Goto Top of cuelist
+* Goto End of cuelist
 * Goto Previous cue in playlist
 * Goto Next cue in playlist
