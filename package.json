@@ -1,6 +1,6 @@
 {
 	"name": "showcuesystems-scs",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -11,9 +11,9 @@
 		"url": "git+https://github.com/bitfocus/companion-module-showcuesystems-scs.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.7.0"
+		"@companion-module/base": "~1.15.1"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "^2.8.0"
+		"@companion-module/tools": "^2.9.0"
 	}
 }
